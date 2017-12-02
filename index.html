@@ -31,12 +31,15 @@
             // });
             $(document).ready(function(e) {
                 var width = $(document).width();
+                width = width - 120;
             
                 function goRight() {
                     $(".photo").animate({
                     left: width
                   }, 5000, function() {
                      setTimeout(goLeft, 50);
+                     border = border + 100;
+                     $(".photo").css({"margin-top": border+"px"});
                   });
                 }
                 function goLeft() {
