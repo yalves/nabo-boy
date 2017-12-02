@@ -18,17 +18,21 @@
         <img class="photo" src="katsuo.PNG" alt="Mountain View">
         <script>
             var border = 0;
+
+            var degrees=0, seconds=0, previousRotation=0;
             
-            // $(".photo").click(function(){
-            //  previousRotation = degrees;
-            //  degrees+= parseInt(Math.random() * 360 + 180);
-            //   //you should adjust this formula
-            //    miliseconds = parseInt((degrees - previousRotation)) * 5;
-            //     $(this).css({
-            //         "-webkit-transform" : "rotate("+ degrees +"deg)",
-            //         "-webkit-transition-duration" : miliseconds + "ms"
-            //     });
-            // });
+            $(".photo").click(function(){
+             previousRotation = degrees;
+             degrees+= parseInt(Math.random() * 360 + 180);
+              //you should adjust this formula
+               miliseconds = parseInt((degrees - previousRotation)) * 5;
+                $(this).css({
+                    "-webkit-transform" : "rotate("+ degrees +"deg)",
+                    "-webkit-transition-duration" : miliseconds + "ms"
+                });
+            });
+
+
             $(document).ready(function(e) {
                 var width = $(document).width();
                 width = width - 120;
