@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <link rel="shortcut icon" href="nabo.ico" />
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <style>
+            body {
+                background-image: url("nabo.jpg");
+                background-size: 100px 100px;
+            }
+            .photo {
+                position: relative;
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <img class="photo" src="katsuo.PNG" alt="Mountain View">
+        <script>
+            var border = 0;
+            
+            // $(".photo").click(function(){
+            //  previousRotation = degrees;
+            //  degrees+= parseInt(Math.random() * 360 + 180);
+            //   //you should adjust this formula
+            //    miliseconds = parseInt((degrees - previousRotation)) * 5;
+            //     $(this).css({
+            //         "-webkit-transform" : "rotate("+ degrees +"deg)",
+            //         "-webkit-transition-duration" : miliseconds + "ms"
+            //     });
+            // });
+            $(document).ready(function(e) {
+                var width = $(document).width();
+            
+                function goRight() {
+                    $(".photo").animate({
+                    left: width
+                  }, 5000, function() {
+                     setTimeout(goLeft, 50);
+                  });
+                }
+                function goLeft() {
+                    $(".photo").animate({
+                    left: 0
+                  }, 5000, function() {
+                     setTimeout(goRight, 50);
+                     border = border + 100;
+                     $(".photo").css({"margin-top": border+"px"});
+                  });
+                }
+            
+                setTimeout(goRight, 50);
+            });
+        </script>
+    </body>
+</html>
